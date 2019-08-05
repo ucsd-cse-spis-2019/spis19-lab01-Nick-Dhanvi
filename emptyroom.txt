@@ -1,1 +1,28 @@
+# state 0 with nothing N: go one step N
+0 x*** -> N 0   
 
+
+# state 0 with something to the N: go W + into st 1 
+0 N*x* -> W 1 
+
+
+# state 1 with nothing to the S: go one step S
+1 ***x -> S 1   
+
+# state 1 with something to the S: stay put + into state 0
+1 ***S -> X 0   
+
+# state 0 with something on the north and west: stay put +into state 2
+0 N*W* -> X 2
+
+# state 2 with nothing to the east: go east
+2 *X** -> E 2
+
+# state 2 with something to the east: move 1 step south
+2 *E** -> S 3
+
+# state 3 with nothing to the west: move west
+3 **x* -> W 3
+
+# state 3 with something to the west: stop + into state 2
+3 **W* -> X 2
